@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const MovieList = () => {
-  // Define state for movies
+  // states for movies
   const [movies, setMovies] = useState([
     { id: 1, title: "The Big Short", rating: 7 },
     { id: 2, title: "The Whale", rating: 10 },
@@ -10,10 +10,10 @@ const MovieList = () => {
     { id: 5, title: "Avengers: Endgame", rating: 6 },
   ]);
 
-  // Define upvote function
+  //  upvote function
   const upvote = (id) => {
     const updatedMovies = movies.map((movie) => {
-      if (movie.id === id) {
+      if (movie.id === id && movie.rating < 10) { // only allowing ratings to be changed if the id matches and the ratings are within bounds
         return { ...movie, rating: movie.rating + 1 };
       }
       return movie;
@@ -21,10 +21,10 @@ const MovieList = () => {
     setMovies(updatedMovies);
   };
 
-  // Define downvote function
+  // downvote function
   const downvote = (id) => {
     const updatedMovies = movies.map((movie) => {
-      if (movie.id === id) {
+      if (movie.id === id && movie.rating > 0) { 
         return { ...movie, rating: movie.rating - 1 };
       }
       return movie;
@@ -43,13 +43,13 @@ const MovieList = () => {
         </tr>
       </thead>
       <tbody>
+        {/* The 'key' prop helps React track each movie's identity during re-renders */}
         {movies.map((movie) => (
-          <tr key={movie.id}>
+          <tr key={movie.id}> 
             <td>{movie.id}</td>
             <td>{movie.title}</td>
             <td>{movie.rating}</td>
             <td>
-              {/* Pass movie.id to upvote and downvote functions */}
               <button onClick={() => upvote(movie.id)}>Upvote</button>
               <button onClick={() => downvote(movie.id)}>Downvote</button>
             </td>
