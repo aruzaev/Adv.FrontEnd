@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 1</title>
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        #balls {
+            color: orange;
+            background-color: black;
+            padding: 20px;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="balls"></h1>
+    <script src="moment.js"></script>
+
+    <script>
+        //alert(moment().format("YYYY MM DD"));
+
+        document.getElementById("balls").innerHTML = moment().format("YYYY-MM-DD");
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  
+}
+
+h1 {
+  font-size: 47px;
+  color: #282c34;
+
+}
+
+h2 {
+  font-size: 30px;
+  color: #282c34;
+}
+
+ul {
+  
+  display: inline-block;
+  background-color: #282c34;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0px;
+
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+

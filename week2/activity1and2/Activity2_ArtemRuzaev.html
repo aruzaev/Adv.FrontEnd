@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script text="text/javascript">
+      let cars = { // activity 2
+        cars: [
+          {
+            plateNum: "ABX123",
+            make: "Toyota",
+            model: "Corolla",
+            price: 23000,
+          },
+          {
+            plateNum: "NMP432",
+            make: "Mazda",
+            model: "III",
+            price: 32000,
+          },
+          {
+            plateNum: "PUT988",
+            make: "Honda",
+            model: "Civic",
+            price: 19500,
+          },
+        ],
+      };
+
+      console.log(cars.cars[0].make); // accessing variable -> array inside of variable
+
+
+      for (let index = 0; index < cars.cars.length; index++) {
+        document.write(cars.cars[index].make + ", " + cars.cars[index].model + cars.cars[index].price + "<br>")
+        document.write("\r\n")
+
+        
+      }
+
+      let person = {
+        "name": "John",
+        "age": 31,
+        "city": "Toronto"
+      };
+
+      console.log(person["name"]);
+    </script>
+  </body>
+</html>
