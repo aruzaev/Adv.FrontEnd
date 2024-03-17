@@ -9,21 +9,27 @@ const ReceiptComponent = ({ usage }) => {
   const [morningCharge, setMorningCharge] = useState(0);
   const [afternoonCharge, setAfternoonCharge] = useState(0);
   const [eveningCharge, setEveningCharge] = useState(0);
-  const [shouldShowName, setShouldShowName] = useState(false);
+  const [displayName, setDisplayName] = useState(false);
+  const [error, setError] = useState("");
 
   const calculateBill = () => {
-    const morning = Number(usage.morning) * 0.132;
-    const afternoon = Number(usage.afternoon) * 0.065;
-    const evening = Number(usage.evening) * 0.094;
-    const total = morning + afternoon + evening;
-    const tax = total * 0.13;
-    setMorningCharge(morning);
-    setAfternoonCharge(afternoon);
-    setEveningCharge(evening);
-    setTotalUsageCharge(total);
-    setSalesTax(tax);
-    setTotalBill(total + tax);
-    setShouldShowName(true);
+    if (!name.trim() || !usage.morning || !usage.afternoon || !usage.evening) {
+      setError("Please enter a valid name and usage values.");
+    } else {
+      const morning = Number(usage.morning) * 0.132;
+      const afternoon = Number(usage.afternoon) * 0.065;
+      const evening = Number(usage.evening) * 0.094;
+      const total = morning + afternoon + evening;
+      const tax = total * 0.13;
+      setMorningCharge(morning);
+      setAfternoonCharge(afternoon);
+      setEveningCharge(evening);
+      setTotalUsageCharge(total);
+      setSalesTax(tax);
+      setTotalBill(total + tax);
+      setDisplayName(true);
+      setError("");
+    }
   };
 
   return (
@@ -33,11 +39,12 @@ const ReceiptComponent = ({ usage }) => {
         type="text"
         placeholder="Enter your name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(event) => setName(event.target.value)}
       />
       <button onClick={calculateBill}>Calculate</button>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <div className="bill-details">
-        {shouldShowName && (
+        {displayName && (
           <p>Hello {name}, below are your estimated bill charges.</p>
         )}
         <p>Morning usage charge: ${morningCharge.toFixed(2)}</p>

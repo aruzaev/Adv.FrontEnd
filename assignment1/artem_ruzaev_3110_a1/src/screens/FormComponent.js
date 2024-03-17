@@ -5,9 +5,22 @@ const FormComponent = ({ setUsage }) => {
   const [morning, setMorning] = useState("");
   const [afternoon, setAfternoon] = useState("");
   const [evening, setEvening] = useState("");
+  const [error, setError] = useState("");
 
   const saveUsage = () => {
-    setUsage({ morning, afternoon, evening });
+    if (
+      morning < 0 ||
+      afternoon < 0 ||
+      evening < 0 ||
+      isNaN(morning) ||
+      isNaN(afternoon) ||
+      isNaN(evening)
+    ) {
+      setError("Please enter a valid number.");
+    } else {
+      setUsage({ morning, afternoon, evening });
+      setError("");
+    }
   };
 
   return (
@@ -43,6 +56,7 @@ const FormComponent = ({ setUsage }) => {
           onChange={(event) => setEvening(event.target.value)}
         />
       </div>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <button onClick={saveUsage}>Save</button>
     </div>
   );

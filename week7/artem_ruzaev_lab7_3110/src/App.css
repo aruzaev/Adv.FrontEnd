@@ -1,0 +1,64 @@
+body {
+  background-color: #333;
+  color: #ccc;
+  margin: 0;
+  padding: 20px;
+}
+
+.FitnessTracker {
+  background: #222;
+  border: 1px solid #444;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+h1,
+h2 {
+  color: #f0f0f0;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #ddd;
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+button,
+input[type="submit"] {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #666;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #292929;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-left: 5px solid #666;
+}
+
+label {
+  color: #bbb;
+}
